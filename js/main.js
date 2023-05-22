@@ -46,14 +46,21 @@ createApp({
         }
     },
     methods: {
-        rimuoviItem (indice) {
+        rimuoviItem(indice) {
             this.tasks.splice(indice, 1);
         },
-        aggiungiTask () {
+        aggiungiTask() {
             this.tasks.unshift({
                 text: this.newTask,
                 done: false
             })
+        },
+        cambiaStato(item) {
+            if (item.done == true) {
+                item.done = false;
+            } else {
+                item.done = true;
+            }
         }
     }
 }).mount("#app")

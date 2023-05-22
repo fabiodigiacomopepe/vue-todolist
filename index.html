@@ -12,12 +12,12 @@
     <body>
         
         <div id="app">
-            <input v-model="newTask" @keyup.enter="aggiungiTask" type="text" value="" placeholder="Inserisci una task">
+            <input v-model="newTask" @keyup.enter="aggiungiTask" type="text" placeholder="Inserisci una task">
             <input @click="aggiungiTask" id="bottoneAggiungi" type="button" value="Aggiungi">
 
             <ul>
                 <li class="item "v-for="(task, idx) in tasks">
-                    <span :class="task.done ? 'done_line-through' : ''">{{task.text}}</span>
+                    <span @click="cambiaStato(task)" :class="task.done ? 'done_line-through' : ''">{{task.text}}</span>
                     <i @click.stop="rimuoviItem(idx)" class="fa-solid fa-xmark"></i>
                 </li>
             </ul>

@@ -26,6 +26,10 @@ li {
     justify-content: space-between;
 }
 
+span {
+    cursor: pointer;
+}
+
 .done_line-through {
     text-decoration: line-through;
 }
