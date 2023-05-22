@@ -53,7 +53,8 @@ createApp({
         },
         aggiungiTask() {
             // SE è stato inserito qualcosa in input E la lunghezza (in caratteri) è maggiore/uguale a 5
-            if (this.newTask !== "" && this.newTask.length >= 5) {          
+            // E la task inserita NON è già presente tra quelle in lista
+            if (this.newTask !== "" && this.newTask.length >= 5 && !this.tasks.find(el => el.text == this.newTask)) {          
                 this.tasks.unshift({            /* inserisci (unshift = push, ma all'inizio) */
                     text: this.newTask,         /* in chiave TEXT = valore preso da INPUT */
                     done: false                 /* FATTO = FALSO (default) */
