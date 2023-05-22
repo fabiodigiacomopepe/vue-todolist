@@ -1,3 +1,4 @@
+/* Regole generali pagina */
 * {
     margin: 0;
     padding: 0;
@@ -8,6 +9,12 @@ body {
     padding: 20px 30px;
 }
 
+/* Regole logo */
+img {
+    max-width: 200px;
+}
+
+/* Regole sezione input */
 input {
     margin-bottom: 10px;
     margin-right: 10px;
@@ -17,6 +24,12 @@ input {
     padding: 2px 10px;
 }
 
+/* Regole messaggio errore */
+.errore {
+    color: red;
+}
+
+/* Regole lista */
 ul {
     max-width: 300px;
 }

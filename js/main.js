@@ -24,7 +24,9 @@ const {createApp} = Vue;
 createApp({
     data(){
         return{
-            newTask: "",
+            percorsoLogo: "img/logo.png",       // Percorso immagine logo
+            newTask: "",                        // newTask = vuoto (default)
+            errore: false,                      // errore NON presente (default)
             tasks: [
                 {
                     text: "Seguire il recap dei Massimi",
@@ -47,20 +49,23 @@ createApp({
     },
     methods: {
         rimuoviItem(indice) {
-            this.tasks.splice(indice, 1);
+            this.tasks.splice(indice, 1);       /* rimuovo UN solo elemento (1) in posizione x (INDICE) */
         },
         aggiungiTask() {
-            this.tasks.unshift({
-                text: this.newTask,
-                done: false
-            })
-        },
-        cambiaStato(item) {
-            if (item.done == true) {
-                item.done = false;
-            } else {
-                item.done = true;
+            // SE è stato inserito qualcosa in input E la lunghezza (in caratteri) è maggiore/uguale a 5
+            if (this.newTask !== "" && this.newTask.length >= 5) {          
+                this.tasks.unshift({            /* inserisci (unshift = push, ma all'inizio) */
+                    text: this.newTask,         /* in chiave TEXT = valore preso da INPUT */
+                    done: false                 /* FATTO = FALSO (default) */
+                });
+                this.errore = false;            /* Errore = NO */
+            } else {                            /* ALTRIMENTI */
+                this.errore = true;             /* Errore = SI */
             }
+            this.newTask = "";                  /* Pulisci comunque input */
+        },
+        cambiaStato(item) {                     /* Cambio stato DONE/UNDONE */
+            item.done = !item.done;             /* Setto che se DONE diventa UNDONE, viceversa */
         }
     }
-}).mount("#app")
+}).mount("#app")                                /* Monto in ID app nel DOM */

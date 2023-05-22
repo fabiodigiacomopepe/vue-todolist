@@ -11,16 +11,31 @@
 
     <body>
         
+        <!-- Contenitore dove è anche montata createApp -->
         <div id="app">
+
+            <!-- Logo -->
+            <div>
+                <img :src="percorsoLogo" alt="logo">
+            </div>
+
+            <!-- Input e pulsante aggiungi -->
             <input v-model="newTask" @keyup.enter="aggiungiTask" type="text" placeholder="Inserisci una task">
             <input @click="aggiungiTask" id="bottoneAggiungi" type="button" value="Aggiungi">
+            <!-- Messaggio errore -->
+            <div class="errore" v-if="errore">
+                Inserisci una task che abbia almeno 5 caratteri
+            </div>
 
+            <!-- Lista To Do -->
             <ul>
                 <li class="item "v-for="(task, idx) in tasks">
                     <span @click="cambiaStato(task)" :class="task.done ? 'done_line-through' : ''">{{task.text}}</span>
                     <i @click.stop="rimuoviItem(idx)" class="fa-solid fa-xmark"></i>
                 </li>
             </ul>
+            <!-- Messaggio se lista è vuota -->
+            <div v-if="tasks.length === 0">Nessuna task presente</div>
         </div>
 
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
