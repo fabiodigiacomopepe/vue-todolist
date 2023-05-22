@@ -12,6 +12,9 @@
     <body>
         
         <div id="app">
+            <input v-model="newTask" type="text" value="" placeholder="Inserisci una task">
+            <input @click="aggiungiTask" id="bottoneAggiungi" type="button" value="Aggiungi">
+
             <ul>
                 <li class="item "v-for="(task, idx) in tasks">
                     <span :class="task.done ? 'done_line-through' : ''">{{task.text}}</span>

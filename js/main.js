@@ -24,6 +24,7 @@ const {createApp} = Vue;
 createApp({
     data(){
         return{
+            newTask: "",
             tasks: [
                 {
                     text: "Seguire il recap dei Massimi",
@@ -47,6 +48,12 @@ createApp({
     methods: {
         rimuoviItem (indice) {
             this.tasks.splice(indice, 1);
+        },
+        aggiungiTask () {
+            this.tasks.unshift({
+                text: this.newTask,
+                done: false
+            })
         }
     }
 }).mount("#app")
