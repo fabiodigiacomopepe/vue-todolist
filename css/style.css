@@ -8,6 +8,15 @@ body {
     padding: 20px 30px;
 }
 
+ul {
+    max-width: 300px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+}
+
 .done_line-through {
     text-decoration: line-through;
 }
