@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px 30px;
+}
+
+.done_line-through {
+    text-decoration: line-through;
+}
